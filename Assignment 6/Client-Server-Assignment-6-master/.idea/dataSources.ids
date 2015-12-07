@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - new@localhost" uuid="eebeb353-aa90-4454-864f-bf680f325884">
+    <database-info product="MySQL" version="5.7.9-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="addressbook"/>
+    <schema name="" catalog="new"/>
+    <table name="addresses" schema="" catalog="addressbook" type="TABLE">
+      <column name="addressID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="address1" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address2" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="county" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altaddress1" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altaddress2" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altcity" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altcounty" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="addressID"/>
+      <foreign-key name="fk_addresses" columns="personID" ref-table="names" ref-schema="" ref-catalog="addressbook" ref-columns="personID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_addresses" unique="false" columns="personID"/>
+    </table>
+    <table name="emailaddresses" schema="" catalog="addressbook" type="TABLE">
+      <column name="emailID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="emailAddress" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altemailAddress" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="emailID"/>
+      <foreign-key name="fk_emailAddresses" columns="personID" ref-table="names" ref-schema="" ref-catalog="addressbook" ref-columns="personID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_emailAddresses" unique="false" columns="personID"/>
+    </table>
+    <table name="names" schema="" catalog="addressbook" type="TABLE">
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="firstName" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastName" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="personID"/>
+      <exported-key name="fk_addresses" table="addresses" schema="" catalog="addressbook" columns="personID"/>
+      <exported-key name="fk_emailAddresses" table="emailaddresses" schema="" catalog="addressbook" columns="personID"/>
+      <exported-key name="fk_phoneNumbers" table="phonenumbers" schema="" catalog="addressbook" columns="personID"/>
+    </table>
+    <table name="newnames" schema="" catalog="addressbook" type="TABLE">
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="firstName" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastName" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="MiddleName" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="personID"/>
+    </table>
+    <table name="phonenumbers" schema="" catalog="addressbook" type="TABLE">
+      <column name="phoneID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="phoneNumber" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altphoneNumber" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="phoneID"/>
+      <foreign-key name="fk_phoneNumbers" columns="personID" ref-table="names" ref-schema="" ref-catalog="addressbook" ref-columns="personID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_phoneNumbers" unique="false" columns="personID"/>
+    </table>
+    <table name="addresses" schema="" catalog="new" type="TABLE">
+      <column name="addressID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="address1" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address2" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="county" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altaddress1" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altaddress2" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altcity" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altcounty" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="addressID"/>
+      <foreign-key name="fk_addresses" columns="personID" ref-table="names" ref-schema="" ref-catalog="new" ref-columns="personID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_addresses" unique="false" columns="personID"/>
+    </table>
+    <table name="emailaddresses" schema="" catalog="new" type="TABLE">
+      <column name="emailID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="emailAddress" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altemailAddress" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="emailID"/>
+      <foreign-key name="fk_emailAddresses" columns="personID" ref-table="names" ref-schema="" ref-catalog="new" ref-columns="personID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_emailAddresses" unique="false" columns="personID"/>
+    </table>
+    <table name="names" schema="" catalog="new" type="TABLE">
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="firstName" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastName" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="MiddleName" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="personID"/>
+      <exported-key name="fk_addresses" table="addresses" schema="" catalog="new" columns="personID"/>
+      <exported-key name="fk_emailAddresses" table="emailaddresses" schema="" catalog="new" columns="personID"/>
+      <exported-key name="fk_phoneNumbers" table="phonenumbers" schema="" catalog="new" columns="personID"/>
+    </table>
+    <table name="phonenumbers" schema="" catalog="new" type="TABLE">
+      <column name="phoneID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="personID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="phoneNumber" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="altphoneNumber" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="phoneID"/>
+      <foreign-key name="fk_phoneNumbers" columns="personID" ref-table="names" ref-schema="" ref-catalog="new" ref-columns="personID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_phoneNumbers" unique="false" columns="personID"/>
+    </table>
+  </data-source>
+</component>
